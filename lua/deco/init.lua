@@ -7,4 +7,3 @@ vim.opt.shiftwidth = 3
 vim.opt.expandtab = true
 vim.opt.cursorline = true
 vim.cmd [[packadd packer.nvim]]
- 
