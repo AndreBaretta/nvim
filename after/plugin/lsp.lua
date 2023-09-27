@@ -1,15 +1,12 @@
-local lsp_zero = require('lsp-zero')
+local lsp = require('lsp-zero')
 local lspconfig = require('lspconfig')
 local cmp = require('cmp')
 local cmp_action = require('lsp-zero').cmp_action()
 
+lsp.setup_servers({'lua_ls', 'rust_analyzer', 'gopls'})
 
-
-
-lsp_zero.setup_servers({'lua_ls', 'rust_analyzer', 'gopls'})
-
-lsp_zero.on_attach(function(client, bufnr)
-  lsp_zero.default_keymaps({buffer = bufnr})
+lsp.on_attach(function(client, bufnr)
+  lsp.default_keymaps({buffer = bufnr})
 end)
 
 require('mason').setup({})
@@ -18,6 +15,6 @@ require('mason-lspconfig').setup({
   -- with the ones you want to install
   ensure_installed = {'gopls', 'rust_analyzer', 'lua_ls'},
   handlers = {
-    lsp_zero.default_setup,
+    lsp.default_setup,
   }
 })
